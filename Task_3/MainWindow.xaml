@@ -1,0 +1,360 @@
+﻿<Window x:Class="Task_3.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Task_3"
+        mc:Ignorable="d"
+        Title="Завдання 3" Height="300" Width="800">
+
+    <StackPanel Background="Black">
+        <CheckBox Name="cbSample"
+                  Content="Кольори"
+                  Foreground="White"
+                  FontSize="20"
+                  Margin="20"/>
+
+        <DockPanel>
+            <Border Name="bord1"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Width="100"
+                Height="100"
+                Margin="25">
+
+                <Border.Style>
+                    <Style TargetType="Border">
+                        <Setter Property="Background"
+                            Value="SlateGray"/>
+                        <Setter Property="BorderBrush"
+                            Value="DarkGray"/>
+                        <Setter Property="BorderThickness"
+                            Value="2"/>
+
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding 
+                                ElementName=cbSample, 
+                                Path=IsChecked}"
+                                     Value="True">
+
+                                <Setter Property="Background"
+                                        Value="Cyan"/>
+                                <Setter Property="BorderBrush"
+                                        Value="DarkCyan"/>
+                            </DataTrigger>
+
+                            <MultiDataTrigger>
+                                <MultiDataTrigger.Conditions>
+                                    <Condition Binding="{Binding 
+                                        ElementName=cbSample, 
+                                        Path=IsChecked}"
+                                               Value="True"/>
+                                    <Condition Binding="{Binding 
+                                        ElementName=bord2, 
+                                        Path=IsMouseOver}"
+                                               Value="True"/>
+                                </MultiDataTrigger.Conditions>
+
+                                <Setter Property="Background"
+                                        Value="Magenta"/>
+                                <Setter Property="BorderBrush"
+                                        Value="DeepPink"/>
+                            </MultiDataTrigger>
+
+                            <MultiDataTrigger>
+                                <MultiDataTrigger.Conditions>
+                                    <Condition Binding="{Binding 
+                                        ElementName=cbSample, 
+                                        Path=IsChecked}"
+                                               Value="True"/>
+                                    <Condition Binding="{Binding 
+                                        ElementName=bord3, 
+                                        Path=IsMouseOver}"
+                                               Value="True"/>
+                                </MultiDataTrigger.Conditions>
+
+                                <Setter Property="Background"
+                                        Value="Yellow"/>
+                                <Setter Property="BorderBrush"
+                                        Value="Goldenrod"/>
+                            </MultiDataTrigger>
+
+                            <Trigger Property="IsMouseOver"
+                                 Value="True">
+                                <Trigger.EnterActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <ThicknessAnimation
+                                            Duration="0:0:0.4"
+                                            To="10"
+                                            Storyboard.TargetProperty="BorderThickness"/>
+
+                                            <DoubleAnimation
+                                            Duration="0:0:0.3"
+                                            To="150" 
+                                            Storyboard.TargetProperty="Height"/>
+
+                                            <DoubleAnimation
+                                            Duration="0:0:0.3"
+                                            To="150"
+                                            Storyboard.TargetProperty="Width"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </Trigger.EnterActions>
+
+                                <Trigger.ExitActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <ThicknessAnimation
+                                            Duration="0:0:0.25"
+                                            To="0"
+                                            Storyboard.TargetProperty="BorderThickness"/>
+
+                                            <DoubleAnimation
+                                            Duration="0:0:0.15"
+                                            To="100" 
+                                            Storyboard.TargetProperty="Height"/>
+
+                                            <DoubleAnimation
+                                            Duration="0:0:0.15"
+                                            To="100"
+                                            Storyboard.TargetProperty="Width"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </Trigger.ExitActions>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Border.Style>
+            </Border>
+
+            
+            <Border Name="bord2"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Width="100"
+                Height="100"
+                Margin="25">
+
+                <Border.Style>
+                    <Style TargetType="Border">
+                        <Setter Property="Background"
+                            Value="SlateGray"/>
+                        <Setter Property="BorderBrush"
+                            Value="DarkGray"/>
+                        <Setter Property="BorderThickness"
+                            Value="2"/>
+
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding 
+                                ElementName=cbSample, 
+                                Path=IsChecked}"
+                                     Value="True">
+
+                                <Setter Property="Background"
+                                        Value="Magenta"/>
+                                <Setter Property="BorderBrush"
+                                        Value="DeepPink"/>
+                            </DataTrigger>
+
+                            <MultiDataTrigger>
+                                <MultiDataTrigger.Conditions>
+                                    <Condition Binding="{Binding 
+                                        ElementName=cbSample, 
+                                        Path=IsChecked}"
+                                               Value="True"/>
+                                    <Condition Binding="{Binding 
+                                        ElementName=bord1, 
+                                        Path=IsMouseOver}"
+                                               Value="True"/>
+                                </MultiDataTrigger.Conditions>
+
+                                <Setter Property="Background"
+                                        Value="Cyan"/>
+                                <Setter Property="BorderBrush"
+                                        Value="DarkCyan"/>
+                            </MultiDataTrigger>
+
+                            <MultiDataTrigger>
+                                <MultiDataTrigger.Conditions>
+                                    <Condition Binding="{Binding 
+                                        ElementName=cbSample, 
+                                        Path=IsChecked}"
+                                               Value="True"/>
+                                    <Condition Binding="{Binding 
+                                        ElementName=bord3, 
+                                        Path=IsMouseOver}"
+                                               Value="True"/>
+                                </MultiDataTrigger.Conditions>
+
+                                <Setter Property="Background"
+                                        Value="Yellow"/>
+                                <Setter Property="BorderBrush"
+                                        Value="Goldenrod"/>
+                            </MultiDataTrigger>
+
+                            <Trigger Property="IsMouseOver"
+                                 Value="True">
+                                <Trigger.EnterActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <ThicknessAnimation
+                                            Duration="0:0:0.4"
+                                            To="10"
+                                            Storyboard.TargetProperty="BorderThickness"/>
+
+                                            <DoubleAnimation
+                                            Duration="0:0:0.3"
+                                            To="150" 
+                                            Storyboard.TargetProperty="Height"/>
+
+                                            <DoubleAnimation
+                                            Duration="0:0:0.3"
+                                            To="150"
+                                            Storyboard.TargetProperty="Width"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </Trigger.EnterActions>
+
+                                <Trigger.ExitActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <ThicknessAnimation
+                                            Duration="0:0:0.25"
+                                            To="0"
+                                            Storyboard.TargetProperty="BorderThickness"/>
+
+                                            <DoubleAnimation
+                                            Duration="0:0:0.15"
+                                            To="100" 
+                                            Storyboard.TargetProperty="Height"/>
+
+                                            <DoubleAnimation
+                                            Duration="0:0:0.15"
+                                            To="100"
+                                            Storyboard.TargetProperty="Width"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </Trigger.ExitActions>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Border.Style>
+            </Border>
+
+
+            <Border Name="bord3"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Width="100"
+                Height="100"
+                Margin="25">
+
+                <Border.Style>
+                    <Style TargetType="Border">
+                        <Setter Property="Background"
+                            Value="SlateGray"/>
+                        <Setter Property="BorderBrush"
+                            Value="DarkGray"/>
+                        <Setter Property="BorderThickness"
+                            Value="2"/>
+
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding 
+                                ElementName=cbSample, 
+                                Path=IsChecked}"
+                                     Value="True">
+
+                                <Setter Property="Background"
+                                        Value="Yellow"/>
+                                <Setter Property="BorderBrush"
+                                        Value="Goldenrod"/>
+                            </DataTrigger>
+
+                            <MultiDataTrigger>
+                                <MultiDataTrigger.Conditions>
+                                    <Condition Binding="{Binding 
+                                        ElementName=cbSample, 
+                                        Path=IsChecked}"
+                                               Value="True"/>
+                                    <Condition Binding="{Binding 
+                                        ElementName=bord1, 
+                                        Path=IsMouseOver}"
+                                               Value="True"/>
+                                </MultiDataTrigger.Conditions>
+
+                                <Setter Property="Background"
+                                        Value="Cyan"/>
+                                <Setter Property="BorderBrush"
+                                        Value="DarkCyan"/>
+                            </MultiDataTrigger>
+
+                            <MultiDataTrigger>
+                                <MultiDataTrigger.Conditions>
+                                    <Condition Binding="{Binding 
+                                        ElementName=cbSample, 
+                                        Path=IsChecked}"
+                                               Value="True"/>
+                                    <Condition Binding="{Binding 
+                                        ElementName=bord2, 
+                                        Path=IsMouseOver}"
+                                               Value="True"/>
+                                </MultiDataTrigger.Conditions>
+
+                                <Setter Property="Background"
+                                        Value="Magenta"/>
+                                <Setter Property="BorderBrush"
+                                        Value="DeepPink"/>
+                            </MultiDataTrigger>
+
+                            <Trigger Property="IsMouseOver"
+                                 Value="True">
+                                <Trigger.EnterActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <ThicknessAnimation
+                                            Duration="0:0:0.4"
+                                            To="10"
+                                            Storyboard.TargetProperty="BorderThickness"/>
+
+                                            <DoubleAnimation
+                                            Duration="0:0:0.3"
+                                            To="150" 
+                                            Storyboard.TargetProperty="Height"/>
+
+                                            <DoubleAnimation
+                                            Duration="0:0:0.3"
+                                            To="150"
+                                            Storyboard.TargetProperty="Width"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </Trigger.EnterActions>
+
+                                <Trigger.ExitActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <ThicknessAnimation
+                                            Duration="0:0:0.25"
+                                            To="0"
+                                            Storyboard.TargetProperty="BorderThickness"/>
+
+                                            <DoubleAnimation
+                                            Duration="0:0:0.15"
+                                            To="100" 
+                                            Storyboard.TargetProperty="Height"/>
+
+                                            <DoubleAnimation
+                                            Duration="0:0:0.15"
+                                            To="100"
+                                            Storyboard.TargetProperty="Width"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </Trigger.ExitActions>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Border.Style>
+            </Border>
+        </DockPanel>
+    </StackPanel>
+</Window>
